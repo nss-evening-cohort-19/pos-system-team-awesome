@@ -1,0 +1,41 @@
+{
+  "-N4ZZgfU3E3MgoNzAxRt" : {
+    "firebaseKey" : "-N4ZZgfU3E3MgoNzAxRt",
+    "customerName" : "string",
+    "callIn" : "boolean",
+    "customerId" : "string",
+    "timeEntry" : "datetime",
+    "total" : "integer",
+    "tipAmount" : "integer",
+    "paymentType" : "string" ,
+    "orderItems" : "string",
+    "qty" : "integer",
+    "isOpen" : "boolean"
+  },
+  "-N4ZbuKuQg_OA8sOrSNJ" : {
+    "firebaseKey" : "-N4ZbuKuQg_OA8sOrSNJ",
+    "customerName" : "string",
+    "callIn" : "boolean",
+    "customerId" : "string",
+    "timeEntry" : "datetime",
+    "total" : "integer",
+    "tipAmount" : "integer",
+    "paymentType" : "string" ,
+    "orderItems" : "string",
+    "qty" : "integer",
+    "isOpen" : "boolean"
+  },
+  "-N4_7jFDzpUQwRkoqawC" : {
+    "firebaseKey" : "-N4_7jFDzpUQwRkoqawC",
+    "customerName" : "string",
+    "callIn" : "boolean",
+    "customerId" : "string",
+    "timeEntry" : "datetime",
+    "total" : "integer",
+    "tipAmount" : "integer",
+    "paymentType" : "string" ,
+    "orderItems" : "string",
+    "qty" : "integer",
+    "isOpen" : "boolean"
+  }
+}
