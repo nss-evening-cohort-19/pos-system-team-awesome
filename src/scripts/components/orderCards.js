@@ -23,7 +23,7 @@ const viewOrders = (array) => {
           <p id="call-in">${order.callIn}</p>
           <hr>
           <i class="btn btn-success fas fa-eye" id="view-orderdetails-btn--${order.firebaseKey}"></i>
-          <i class="fas fa-edit btn btn-info" id="update-order--${order.firebaseKey}"></i>
+          <i class="fas fa-edit btn btn-info" id="edit-order--${order.firebaseKey}"></i>
           <i class="btn btn-danger far fa-trash-alt" id="delete-card-btn--${order.firebaseKey}"></i>
         </div>
       </div>`;
