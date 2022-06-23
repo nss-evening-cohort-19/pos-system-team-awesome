@@ -5,7 +5,8 @@ import closeOrderForm from '../components/forms/closeOrderForm';
 const btnEvt = () => {
   document.querySelector('#view').addEventListener('click', (e) => {
     if (e.target.id.includes('addItemBtn')) {
-      addItemForm();
+      const [, firebaseKey] = e.target.id.split('--');
+      addItemForm(firebaseKey);
     }
     if (e.target.id.includes('payBtn')) {
       const [, firebaseKey] = e.target.id.split('--');

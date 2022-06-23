@@ -45,3 +45,4 @@ Things to remember while coding out the project
 * [Stretch Goals 1 - Filtering the Data](./instructions/stretch-1.md)
 * [Stretch Goals 2 - Dealing with Change](./instructions/stretch-2.md)
 * [Stretch Goals 3 - Play that Funky Music](./instructions/stretch-3.md)
+# POS-system

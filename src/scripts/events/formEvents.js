@@ -2,9 +2,15 @@ import {
   createOrder,
   updateOrder
 } from '../../api/orderData';
+import {
+  createNewMenuItem,
+  updateMenuItem,
+} from '../../api/menuData';
+import viewOrder from '../components/viewOrderDetails';
+import orderDetail from '../../api/mergedData';
 import { viewOrders } from '../components/orderCards';
 
-const fromEvt = () => {
+const formEvt = () => {
   document.querySelector('#main-container').addEventListener('submit', (e) => {
     e.preventDefault();
     if (e.target.id.includes('submit-order')) {
@@ -31,6 +37,31 @@ const fromEvt = () => {
 
       updateOrder(orderObject).then(viewOrders);
     }
+    if (e.target.id.includes('submit-item')) {
+      const [, orderId] = e.target.id.split('--');
+      const itemObject = {
+        itemName: document.querySelector('#item-name').value,
+        itemPrice: document.querySelector('#item-price').value,
+        itemDescription: document.querySelector('#item-description').value,
+        orderId,
+        itemCategory: document.querySelector('#item-category').value
+      };
+      createNewMenuItem(itemObject)
+        .then(() => orderDetail(itemObject.orderId).then((orderObject) => viewOrder(orderObject)));
+    }
+
+    if (e.target.id.includes('update-item')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      const itemObject = {
+        itemName: document.querySelector('#item-name').value,
+        itemPrice: document.querySelector('#item-price').value,
+        itemDescription: document.querySelector('#item-description').value,
+        itemCategory: document.querySelector('#item-category').value,
+        firebaseKey
+      };
+      updateMenuItem(itemObject)
+        .then(() => orderDetail(itemObject.orderId).then((orderObject) => viewOrder(orderObject)));
+    }
   });
 };
-export default fromEvt;
+export default formEvt;

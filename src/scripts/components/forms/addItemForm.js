@@ -1,10 +1,10 @@
 import clearDom from '../../helpers/clearDom';
 import renderToDOM from '../../helpers/renderToDom';
 
-const addItemForm = (obj = {}) => {
+const addItemForm = (orderId, obj = {}) => {
   clearDom();
   const domString = `
-  <form id="${obj.firebaseKey ? `update-item--${obj.firebaseKey}` : 'submit-item'}" class="mb-4>
+  <form id="${obj.firebaseKey ? `update-item--${obj.firebaseKey}` : `submit-item--${orderId}`}" class="mb-4>
   <div class="mb-3">
     <label for="itemName" class="form-label">Item Name</label>
     <input type="text" class="form-control" id="item-name" aria-describedby="item-name" value="${obj.itemName || ''}">
@@ -19,9 +19,9 @@ const addItemForm = (obj = {}) => {
  </div>
  <div class="mb-3">
     <label for="itemCategory" class="form-label">Item Category</label>
-    <input type="text" class="form-control" id="item-category" value="${obj.itemCAtegory || ''}">
+    <input type="text" class="form-control" id="item-category" value="${obj.itemCategory || ''}">
  </div>
- <button type="submit" id="add-item" class="btn btn-primary">Add/Edit Item</button>
+ <button type="submit" id=" submit-item-formbtn" class="btn btn-primary"${obj.firebaseKey ? 'update item' : 'submit item'}>Add/Edit Item</button>
  </form>`;
   renderToDOM('#main-container', domString);
 };

@@ -3,7 +3,7 @@ import axios from 'axios';
 const dbUrl = 'https://hip-hop-pizza-and-wangs-default-rtdb.firebaseio.com';
 
 const getMenuItems = () => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/items.json?orderBy="uid"&equalTo="${''}"`)
+  axios.get(`${dbUrl}/items.json`)
     .then((response) => {
       if (response.data) {
         resolve(Object.values(response.data));
@@ -13,8 +13,8 @@ const getMenuItems = () => new Promise((resolve, reject) => {
     }).catch((error) => reject(error));
 });
 
-const createNewMenuItem = () => new Promise((resolve, reject) => {
-  axios.post(`${dbUrl}/items.json`)
+const createNewMenuItem = (itemObject) => new Promise((resolve, reject) => {
+  axios.post(`${dbUrl}/items.json`, itemObject)
     .then((response) => {
       const addFBK = { firebaseKey: response.data.name };
       axios.patch(`${dbUrl}/items/${response.data.name}.json`, addFBK)
