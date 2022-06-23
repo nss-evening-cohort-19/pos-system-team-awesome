@@ -55,6 +55,9 @@ const domEvents = () => {
     if (e.target.id.includes('add-item')) {
       getMenuItems();
     }
+    if (e.target.id.includes('closeOutOrder')) {
+      console.warn('Closing Order');
+    }
   });
 };
 
