@@ -4,16 +4,15 @@ import { getRevenue } from '../../api/revenueData';
 
 const renderRevenue = (obj) => {
   clearDom();
-  console.warn(obj);
   const domString = `
   <div class="revPage">
   <div class="revHead">
-  <h2>Revenue</h2>
-  <h1>TOTAL REVENUE: $${obj[4]}</h1>
+  <h3>Revenue</h3>
+  <h1 id="totalRevH1">TOTAL REVENUE: $${obj[4]}</h1>
   </div>
   <div class="dates">
   <p>Date Range:</p>
-  <p class="rangeOfDates">${obj[0].earliestDate} - ${obj[0].earliestDate}</p>
+  <p class="rangeOfDates">${obj[0].earliestDate} - ${obj[0].latestDate}</p>
   </div>
   <div class="extras">
   <p>Total Tips: $${obj[5]}</p>

@@ -1,18 +1,18 @@
   {
  "firebaseKey" : "-MiBsfuTafbEQ7eAULxV",
-"totalRevenue" : 1250,
+"totalRevenue" : 0,
 "dateOrdered": {
 "earliestDate" : "9:05:27",
 "latestDate" : "9:05:33"
 },
 "orderType": {
-  "callIn": 1,
-  "walkIn": 7
+  "callIn": 0,
+  "walkIn": 0
 },
-"totalTips": 2.99,
+"totalTips": 0,
 "paymentType": {
-  "cash": 3,
-  "credit": 2,
-  "mobile": 1
+  "cash": 0,
+  "credit": 0,
+  "mobile": 0
 }
   }

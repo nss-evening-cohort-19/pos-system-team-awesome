@@ -76,7 +76,8 @@ width: 20vw;
 margin-top: 5rem;
 }
 .btn {
-  color: white
+  color: white;
+  margin: .5rem;
 }
 .mb-4 {
   width: 25vw;
@@ -88,6 +89,7 @@ margin-top: 5rem;
 }
 .box {
   width: 100vw;
+  padding: 2rem;
   display: flex;
   flex-flow: row wrap;
 }
@@ -103,6 +105,9 @@ margin-top: 5rem;
 .card-body {
   color:#2A2A2A;
 }
+.revHead h1 {
+  margin: 4rem;
+}
 .revPage {
   height: 65vh;
   display: flex;
@@ -111,4 +116,7 @@ margin-top: 5rem;
 }
 .revPage p {
   margin: 0;
+}
+.navbar-nav {
+  color: #d81258;
 }

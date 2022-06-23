@@ -6,22 +6,34 @@ const noItems = () => {
   renderToDOM('#main-container', itemString);
 };
 const viewOrder = (obj) => {
+  // All of this just to get the number to not be a negative...
+  const thisObj = obj.itemObject;
+  let startingTotal = 0;
+  thisObj.forEach((item) => {
+    startingTotal -= item.itemPrice;
+  });
+  const finalTotal = startingTotal * -1;
+  // That was Fun
   clearDom();
   const boxString = '<div id="cardbox" class="box"></div>';
   renderToDOM('#main-container', boxString);
   let domString = ' ';
 
-  domString = `<h1>TOTAL: </h1><button type="button" class="btn btn-success" id="addItemBtn--${obj.firebaseKey}">Add item</button><button type="button" class="btn btn-primary" id="payBtn">Go to payment</button>`;
+  domString = `<h1 id="orderTotal">Total: $${finalTotal}</h1><button type="button" class="btn btn-success" id="addItemBtn--${obj.firebaseKey}">Add item</button><button type="button" class="btn btn-primary" id="payBtn">Go to payment</button>`;
   renderToDOM('#view', domString);
 
   if (obj.itemObject.length) {
     let itemString = ' ';
     obj.itemObject.forEach((item) => {
       itemString += `
-    <div class="card mt-5 d-flex flex-wrap">
-      <div class="d-flex flex-column">
-        <h2>${item.itemName}</h2>
-        <h3>${item.itemPrice}</h3>
+    <div class="card mt-5 d-flex bg-light flex-wrap">
+      <div class="card-body d-flex flex-column">
+        <h3>$${item.itemPrice}</h3>
+        <hr>
+        <h5>${item.itemName}</h5>
+        <sub>${item.itemCategory}</sub>
+        <hr>
+        <p>${item.itemDescription}</p>
         <div>
           <i id="edit-item--${item.firebasekey}" class="fas fa-edit btn btn-info"></i>
           <i id="delete-item--${item.firebaseKey}" class="btn btn-danger fas fa-trash-alt"></i>
