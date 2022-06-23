@@ -30,7 +30,7 @@ body {
   align-items: center;
   color: white;
 }
-.cards {
+.cards, .closed {
   width: 100vw;
   display: flex;
   flex-flow: row wrap;
