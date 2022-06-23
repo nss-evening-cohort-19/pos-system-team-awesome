@@ -3,7 +3,9 @@ import renderToDOM from '../../helpers/renderToDom';
 
 const closeOrderForm = () => {
   clearDom();
-  const domString = `<form id="closeOrder">
+  const domString = `
+  <h3>Your Order Total: $$ {}</h3>
+  <form id="closeOrder">
     <label for="payment-type" class="form-label">Payment Type</label>
     <select class="form-select" aria-label="Default select example">
       <option selected="">Select a payment type</option>

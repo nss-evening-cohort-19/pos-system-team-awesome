@@ -1,5 +1,6 @@
-import { getSingleOrder } from '../../api/orderData';
+// import { getSingleOrder } from '../../api/orderData';
 import addItemForm from '../components/forms/addItemForm';
+import { getOrderItems } from '../../api/orderData';
 import closeOrderForm from '../components/forms/closeOrderForm';
 
 const btnEvt = () => {
@@ -10,7 +11,7 @@ const btnEvt = () => {
     }
     if (e.target.id.includes('payBtn')) {
       const [, firebaseKey] = e.target.id.split('--');
-      getSingleOrder(firebaseKey).then((orderObject) => closeOrderForm(orderObject));
+      getOrderItems(firebaseKey).then((orderObject) => closeOrderForm(orderObject));
     }
   });
 };
