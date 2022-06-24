@@ -28,7 +28,7 @@ const createRevenue = (revenueObj) => new Promise((resolve, reject) => {
 });
 
 const updateRevenue = (revenueObj) => new Promise((resolve, reject) => {
-  axios.patch(`${dbUrl}/revenue/${revenueObj.firebaseKey}.json`, revenueObj)
+  axios.patch(`${dbUrl}/revenue/-MiBsfuTafbEQ7eAULxV.json`, revenueObj)
     .then(() => getRevenue().then(resolve))
     .catch(reject);
 });
@@ -40,10 +40,20 @@ const deleteRevenue = (firebaseKey) => new Promise((resolve, reject) => {
     })
     .catch(reject);
 });
-
+const getRevOrders = () => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/orders.json?orderBy="isOpen"&equalTo="true"`)
+    .then((response) => {
+      if (response.data) {
+        resolve(Object.values(response.data));
+      } else {
+        resolve([]);
+      }
+    }).catch((reject));
+});
 export {
   getRevenue,
   createRevenue,
   updateRevenue,
-  deleteRevenue
+  deleteRevenue,
+  getRevOrders
 };

@@ -7,7 +7,7 @@ import {
   updateMenuItem,
 } from '../../api/menuData';
 import viewOrder from '../components/viewOrderDetails';
-import orderDetail from '../../api/mergedData';
+import { orderDetail } from '../../api/mergedData';
 import { viewOrders } from '../components/orderCards';
 
 const formEvt = (tipAmount, timeEntry, total, paymentType) => {

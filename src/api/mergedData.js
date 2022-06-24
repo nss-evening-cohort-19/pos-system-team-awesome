@@ -9,5 +9,11 @@ const orderDetail = (firebaseKey) => new Promise((resolve, reject) => {
         });
     }).catch((error) => reject(error));
 });
+const getRevenueOrders = (isOpen) => new Promise((resolve, reject) => {
+  getOrderItems(isOpen)
+    .then((orderObject) => {
+      getOrderItems(orderObject.isOpen);
+    }).catch(reject);
+});
 
-export default orderDetail;
+export { orderDetail, getRevenueOrders };
