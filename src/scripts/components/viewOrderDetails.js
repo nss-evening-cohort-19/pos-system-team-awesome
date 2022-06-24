@@ -35,11 +35,12 @@ const viewOrder = (obj) => {
         <hr>
         <p>${item.itemDescription}</p>
         <div>
-          <i id="edit-item--${item.firebasekey}" class="fas fa-edit btn btn-info"></i>
+          <i id="edit-item--${item.firebaseKey}" class="fas fa-edit btn btn-info"></i>
           <i id="delete-item--${item.firebaseKey}" class="btn btn-danger fas fa-trash-alt"></i>
         </div>
         </div>
       </div>`;
+      console.warn(item.firebaseKey);
     });
     renderToDOM('#cardbox', itemString);
   } else {

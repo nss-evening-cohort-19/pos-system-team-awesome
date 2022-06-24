@@ -1,15 +1,15 @@
 /* eslint-disable object-curly-newline */
 import { deleteCustomer, getCustomers } from '../../api/customerData';
-import { deleteOrders, getOrders, getSingleOrder, createOrder } from '../../api/orderData';
+import { deleteOrders, getOrders, getSingleOrder } from '../../api/orderData';
 import { viewOrders } from '../components/orderCards';
 import addOrderForm from '../components/forms/createOrderForm';
 import orderDetail from '../../api/mergedData';
 import { showCustomers } from '../components/pages/customers';
 import viewOrder from '../components/viewOrderDetails';
 import renderRevenue from '../components/showRevenue';
-// import { getRevenue } from '../../api/revenueData';
 import addItemForm from '../components/forms/addItemForm';
-import { getMenuItems, getSingleItem } from '../../api/menuData';
+import { deleteMenuItem, getMenuItems, getSingleItem } from '../../api/menuData';
+import { getRevenue } from '../../api/revenueData';
 
 // Customer card events
 const domEvents = () => {
@@ -43,10 +43,10 @@ const domEvents = () => {
       getOrders().then((array) => viewOrders(array));
     }
     if (e.target.id.includes('create-order-dom')) {
-      addOrderForm().then((array) => createOrder(array));
+      addOrderForm();
     }
     if (e.target.id.includes('revenue-dom')) {
-      renderRevenue();
+      getRevenue().then((array) => renderRevenue(array));
     }
     if (e.target.id.includes('edit-item')) {
       const [, firebasekey] = e.target.id.split('--');
@@ -54,6 +54,12 @@ const domEvents = () => {
     }
     if (e.target.id.includes('add-item')) {
       getMenuItems();
+    }
+    if (e.target.id.includes('delete-item')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      deleteMenuItem(firebaseKey).then(() => {
+        orderDetail(firebaseKey).then(viewOrder);
+      });
     }
   });
 };
