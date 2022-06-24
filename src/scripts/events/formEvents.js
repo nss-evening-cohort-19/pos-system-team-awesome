@@ -50,18 +50,20 @@ const formEvt = (tipAmount, total, paymentType) => {
         orderId,
         itemCategory: document.querySelector('#item-category').value
       };
+      // createNewMenuItem(itemObject)
+      //   .then(() => orderDetail(itemObject.orderId).then((orderObject) => viewOrder(orderObject)));
       createNewMenuItem(itemObject)
-        .then(() => orderDetail(itemObject.orderId).then((orderObject) => viewOrder(orderObject)));
+        .then(() => orderDetail(itemObject).then((orderObj) => console.warn(orderObj)));
     }
 
     if (e.target.id.includes('update-item')) {
-      const [, firebaseKey] = e.target.id.split('--');
+      const [, firebasekey] = e.target.id.split('--');
       const itemObject = {
         itemName: document.querySelector('#item-name').value,
         itemPrice: document.querySelector('#item-price').value,
         itemDescription: document.querySelector('#item-description').value,
         itemCategory: document.querySelector('#item-category').value,
-        firebaseKey
+        firebasekey
       };
       updateMenuItem(itemObject)
         .then(() => orderDetail(itemObject.orderId).then((orderObject) => viewOrder(orderObject)));

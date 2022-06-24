@@ -34,7 +34,7 @@ const renderRevenue = (obj) => {
 getRevenue();
 
 const addRevDetails = (revObj) => {
-  console.warn(revObj);
+  console.error(revObj);
 };
 getRevOrders();
 export { renderRevenue, addRevDetails };
