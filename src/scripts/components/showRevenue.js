@@ -34,19 +34,7 @@ const renderRevenue = (obj) => {
 getRevenue();
 
 const addRevDetails = (revObj) => {
-  let callInTotal = 0;
-  let walkInTotal = 0;
-  if (revObj.length) {
-    revObj.forEach((order) => {
-      console.warn(order);
-      if (order.callIn === 'Call in') {
-        callInTotal += 1;
-      } else {
-        walkInTotal += 1;
-      }
-    });
-  }
-  console.error(callInTotal, walkInTotal);
+  console.warn(revObj);
 };
 getRevOrders();
 export { renderRevenue, addRevDetails };
