@@ -7,10 +7,10 @@ import {
   updateMenuItem,
 } from '../../api/menuData';
 import viewOrder from '../components/viewOrderDetails';
-import orderDetail from '../../api/mergedData';
+import { orderDetail } from '../../api/mergedData';
 import { viewOrders } from '../components/orderCards';
 
-const formEvt = (tipAmount, timeEntry, total, paymentType) => {
+const formEvt = (tipAmount, total, paymentType) => {
   document.querySelector('#main-container').addEventListener('submit', (e) => {
     e.preventDefault();
     if (e.target.id.includes('submit-order')) {
@@ -19,12 +19,11 @@ const formEvt = (tipAmount, timeEntry, total, paymentType) => {
         customerPhone: document.querySelector('#customer-phone').value,
         customerEmail: document.querySelector('#customer-email').value,
         orderName: document.querySelector('#order-name').value,
-        date: new Date().toLocaleString(),
         isOpen: document.querySelector('#is-open').value,
         tipAmount,
-        timeEntry,
+        timeEntry: new Date().toLocaleString(),
         total,
-        paymentType
+        paymentType,
 
       };
       createOrder(orderObject).then((ordersArray) => viewOrders(ordersArray));
