@@ -1,3 +1,4 @@
+import { deleteMenuItem } from './menuData';
 import { getOrderItems, getSingleOrder } from './orderData';
 
 const orderDetail = (firebaseKey) => new Promise((resolve, reject) => {
@@ -15,5 +16,14 @@ const getRevenueOrders = (isOpen) => new Promise((resolve, reject) => {
       getOrderItems(orderObject.isOpen);
     }).catch(reject);
 });
+const deleteOrderItems = (orderId) => new Promise((resolve, reject) => {
+  getOrderItems(orderId).then((itemsArr) => {
+    const deleteItemPromises = itemsArr.map((item) = deleteMenuItem(item.firebaseKey));
 
-export { orderDetail, getRevenueOrders };
+    Promise.all(deleteItemPromises).then(() => {
+      deleteSingleOrder(orderId).then(resolve);
+    });
+  }).catch((error) => reject(error));
+});
+
+export { orderDetail, getRevenueOrders, deleteOrderItems };
