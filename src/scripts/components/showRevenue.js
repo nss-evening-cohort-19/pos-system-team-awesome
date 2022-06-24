@@ -15,15 +15,15 @@ const renderRevenue = (obj) => {
   <p class="rangeOfDates">${obj[0].earliestDate} - ${obj[0].latestDate}</p>
   </div>
   <div class="extras">
-  <p>Total Tips: $${obj[5]}</p>
-  <p>Total Call in Orders: ${obj[2].callIn}</p>
-  <p>Total Walk in Orders: ${obj[2].walkIn}</p>
+  <p id= "total-tips">Total Tips: $${obj[5]}</p>
+  <p id= "total-calls">Total Call in Orders: ${obj[2].callIn}</p>
+  <p id= "total-walk-ins">Total Walk in Orders: ${obj[2].walkIn}</p>
   </div>
   <div class="paymentTypes">
-  <p>Total Payment Types:</p>
-  <p>Cash - ${obj[3].cash}</p>
-  <p>Credit - ${obj[3].credit}</p>
-  <p>Mobile - ${obj[3].mobile}</p>
+  <p id="total-payment-types">Total Payment Types:</p>
+  <p id="cash" >Cash - ${obj[3].cash}</p>
+  <p id= "credit" >Credit - ${obj[3].credit}</p>
+  <p id= "mobile">Mobile - ${obj[3].mobile}</p>
   </div>
   </div>
   `;
