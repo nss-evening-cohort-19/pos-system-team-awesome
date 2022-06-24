@@ -9,7 +9,7 @@ import viewOrder from '../components/viewOrderDetails';
 import { renderRevenue } from '../components/showRevenue';
 // import { getRevenue } from '../../api/revenueData';
 import addItemForm from '../components/forms/addItemForm';
-import { getMenuItems, getSingleItem } from '../../api/menuData';
+import { getMenuItems, getSingleItem, deleteMenuItem } from '../../api/menuData';
 
 // Customer card events
 const domEvents = () => {
@@ -57,6 +57,12 @@ const domEvents = () => {
     }
     if (e.target.id.includes('closeOutOrder')) {
       console.warn('Closing Order');
+    }
+    if (e.target.id.includes('delete-item')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      deleteMenuItem(firebaseKey).then(() => {
+        getOrders().then(viewOrders);
+      });
     }
   });
 };
