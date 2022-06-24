@@ -12,5 +12,16 @@ const getOrderTotal = () => {
     }
   });
 };
+const getRevTotals = () => {
+  document.querySelector('#revLink').addEventListener('click', (e) => {
+    if (e.target.id.includes('total-tips')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      getOrderItems(firebaseKey);
+    }
+  });
+};
 
-export default getOrderTotal;
+export {
+  getOrderTotal,
+  getRevTotals
+};
