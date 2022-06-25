@@ -46,6 +46,7 @@ const getTotalCalls = (array) => {
       walkIn += 1;
     }
   });
+  // console.error(callIn, walkIn);
   const callSpace = document.querySelector('#called');
   callSpace.innerHTML += callIn;
   const walkSpace = document.querySelector('#walked');
