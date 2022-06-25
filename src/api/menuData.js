@@ -37,8 +37,8 @@ const deleteMenuItem = (firebaseKey) => new Promise((resolve, reject) => {
       getMenuItems().then((itemArray) => resolve(itemArray));
     }).catch((error) => reject(error));
 });
-const getSingleItem = (firebasekey) => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/items.json?orderBy="firebasekey"&equalTo="${firebasekey}"`)
+const getSingleItem = (firebaseKey) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/items.json?orderBy="firebaseKey"&equalTo="${firebaseKey}"`)
     .then((response) => resolve(response.data))
     .catch((error) => reject(error));
 });
