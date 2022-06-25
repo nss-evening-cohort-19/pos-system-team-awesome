@@ -6,14 +6,13 @@ const noItems = () => {
   renderToDOM('#main-container', itemString);
 };
 const viewOrder = (obj) => {
-  // All of this just to get the number to not be a negative...
+  console.warn(obj);
   const thisObj = obj.itemObject;
   let startingTotal = 0;
   thisObj.forEach((item) => {
     startingTotal = -item.itemPrice;
   });
   const finalTotal = startingTotal * -1;
-  // That was Fun
   clearDom();
   const boxString = '<div id="cardbox" class="box"></div>';
   renderToDOM('#main-container', boxString);

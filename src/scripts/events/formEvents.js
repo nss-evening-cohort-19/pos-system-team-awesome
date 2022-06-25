@@ -4,6 +4,7 @@ import {
 } from '../../api/orderData';
 import {
   createNewMenuItem,
+  getOrderItemByOrderId,
   updateMenuItem,
 } from '../../api/menuData';
 import viewOrder from '../components/viewOrderDetails';
@@ -55,16 +56,17 @@ const formEvt = (tipAmount, total, paymentType) => {
     }
 
     if (e.target.id.includes('update-item')) {
-      const [, firebasekey] = e.target.id.split('--');
+      const [, orderId, firebasekey] = e.target.id.split('--');
       const itemObject = {
         itemName: document.querySelector('#item-name').value,
         itemPrice: document.querySelector('#item-price').value,
         itemDescription: document.querySelector('#item-description').value,
         itemCategory: document.querySelector('#item-category').value,
+        orderId,
         firebasekey
       };
       updateMenuItem(itemObject)
-        .then(() => orderDetail(itemObject.orderId).then((orderObject) => viewOrder(orderObject)));
+        .then(() => getOrderItemByOrderId(orderId).then((orderObject) => viewOrder(orderObject)));
     }
   });
 };

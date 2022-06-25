@@ -7,7 +7,7 @@ import { orderDetail } from '../../api/mergedData';
 import { showCustomers } from '../components/pages/customers';
 import viewOrder from '../components/viewOrderDetails';
 import { renderRevenue } from '../components/showRevenue';
-// import { getRevenue } from '../../api/revenueData';
+import { getRevenue } from '../../api/revenueData';
 import addItemForm from '../components/forms/addItemForm';
 import { getMenuItems, getSingleItem, deleteMenuItem } from '../../api/menuData';
 
@@ -46,12 +46,11 @@ const domEvents = () => {
       addOrderForm().then((array) => createOrder(array));
     }
     if (e.target.id.includes('revenue-dom')) {
-      renderRevenue();
+      getRevenue().then(renderRevenue);
     }
     if (e.target.id.includes('edit-item')) {
-      const [, firebaseKey] = e.target.id.split('--');
-      getSingleItem(firebaseKey).then((itemObject) => addItemForm(itemObject));
-      getSingleItem(firebaseKey).then((itemObject) => console.error(itemObject));
+      const [, firebasekey] = e.target.id.split('--');
+      getSingleItem(firebasekey).then((itemObject) => addItemForm(null, itemObject));
     }
     if (e.target.id.includes('add-item')) {
       getMenuItems();

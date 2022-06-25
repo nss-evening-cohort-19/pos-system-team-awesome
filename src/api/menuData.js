@@ -37,7 +37,15 @@ const deleteMenuItem = (firebaseKey) => new Promise((resolve, reject) => {
     }).catch((error) => reject(error));
 });
 const getSingleItem = (firebaseKey) => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/items.json?orderBy="firebaseKey"&equalTo="${firebaseKey}"`)
+  axios
+    .get(`${dbUrl}/items/${firebaseKey}.json`)
+    .then((response) => resolve(response.data))
+    .catch((error) => reject(error));
+});
+
+const getOrderItemByOrderId = (orderId) => new Promise((resolve, reject) => {
+  axios
+    .get(`${dbUrl}/items.json?orderBy="orderId"&equalTo="${orderId}"`)
     .then((response) => resolve(response.data))
     .catch((error) => reject(error));
 });
@@ -47,5 +55,6 @@ export {
   createNewMenuItem,
   updateMenuItem,
   deleteMenuItem,
-  getSingleItem
+  getSingleItem,
+  getOrderItemByOrderId
 };
