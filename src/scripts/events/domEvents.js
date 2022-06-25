@@ -57,6 +57,7 @@ const domEvents = () => {
     }
     if (e.target.id.includes('closeOutOrder')) {
       console.warn('Closing Order');
+      renderRevenue();
     }
     if (e.target.id.includes('delete-item')) {
       const [, firebaseKey] = e.target.id.split('--');

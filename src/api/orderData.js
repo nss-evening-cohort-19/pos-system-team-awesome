@@ -21,8 +21,7 @@ const createOrder = (cardObject) => new Promise((resolve, reject) => {
   axios.post(`${dbUrl}/orders.json`, cardObject)
     .then((response) => {
       const payload = {
-        firebaseKey: response.data.name,
-        total: response.data.item
+        firebaseKey: response.data.name
       };
       axios.patch(`${dbUrl}/orders/${response.data.name}.json`, payload)
         .then(() => {

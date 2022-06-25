@@ -22,7 +22,7 @@ const formEvt = (tipAmount, total, paymentType) => {
         isOpen: document.querySelector('#is-open').value,
         tipAmount,
         timeEntry: new Date().toLocaleString(),
-        total,
+        total: document.querySelector('#orderTotal'),
         paymentType,
 
       };
@@ -54,7 +54,7 @@ const formEvt = (tipAmount, total, paymentType) => {
       // createNewMenuItem(itemObject)
       //   .then(() => orderDetail(itemObject.orderId).then((orderObject) => viewOrder(orderObject)));
       createNewMenuItem(itemObject)
-        .then(() => orderDetail(itemObject).then((orderObj) => console.warn(orderObj)));
+        .then(() => orderDetail(itemObject.orderId).then((orderObject) => viewOrder(orderObject)));
     }
 
     if (e.target.id.includes('update-item')) {

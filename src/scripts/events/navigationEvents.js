@@ -3,7 +3,7 @@ import { renderRevenue, addRevDetails } from '../components/showRevenue';
 import homePage from '../components/pages/homepage';
 import { getOrders } from '../../api/orderData';
 import addOrderForm from '../components/forms/createOrderForm';
-import { getRevenue, getRevOrders } from '../../api/revenueData';
+import { getRevenue, getrevItems, getRevOrders } from '../../api/revenueData';
 import { noOrders, viewOrders } from '../components/orderCards';
 
 const navEvt = () => {
@@ -13,7 +13,7 @@ const navEvt = () => {
     }
     if (e.target.id.includes('revLink')) {
       getRevenue().then((array) => renderRevenue(array));
-      getRevOrders().then((array) => addRevDetails(array));
+      getRevOrders().then(getrevItems).then((array) => addRevDetails(array));
     }
     if (e.target.id.includes('create-order')) {
       addOrderForm();

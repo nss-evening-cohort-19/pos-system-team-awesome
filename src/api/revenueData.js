@@ -50,10 +50,17 @@ const getRevOrders = () => new Promise((resolve, reject) => {
       }
     }).catch((reject));
 });
+
+const getrevItems = () => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/items.json`)
+    .then((response) => console.warn(resolve(Object.values(response.data))))
+    .catch((error) => reject(error));
+});
 export {
   getRevenue,
   createRevenue,
   updateRevenue,
   deleteRevenue,
-  getRevOrders
+  getRevOrders,
+  getrevItems
 };
