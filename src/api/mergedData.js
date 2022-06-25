@@ -1,7 +1,7 @@
 import { getOrderItems, getSingleOrder } from './orderData';
 
-const orderDetail = (firebaseKey) => new Promise((resolve, reject) => {
-  getSingleOrder(firebaseKey)
+const orderDetail = (obj) => new Promise((resolve, reject) => {
+  getSingleOrder(obj)
     .then((orderObject) => {
       getOrderItems(orderObject.firebaseKey)
         .then((itemObject) => {
@@ -9,7 +9,7 @@ const orderDetail = (firebaseKey) => new Promise((resolve, reject) => {
         });
     }).catch((error) => reject(error));
 });
-const getRevenueOrders = (isOpen) => new Promise((resolve, reject) => {
+const getRevenueOrders = (isOpen) => new Promise((reject) => {
   getOrderItems(isOpen)
     .then((orderObject) => {
       getOrderItems(orderObject.isOpen);
