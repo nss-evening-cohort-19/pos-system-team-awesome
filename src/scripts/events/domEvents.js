@@ -50,7 +50,7 @@ const domEvents = () => {
     }
     if (e.target.id.includes('edit-item')) {
       const [, firebasekey] = e.target.id.split('--');
-      getSingleItem(firebasekey).then((itemObject) => addItemForm(itemObject));
+      getSingleItem(firebasekey).then((itemObject) => addItemForm(null, itemObject));
     }
     if (e.target.id.includes('add-item')) {
       getMenuItems();

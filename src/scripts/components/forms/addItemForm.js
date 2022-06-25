@@ -2,9 +2,10 @@ import clearDom from '../../helpers/clearDom';
 import renderToDOM from '../../helpers/renderToDom';
 
 const addItemForm = (orderId, obj = {}) => {
+  console.warn(orderId, obj);
   clearDom();
   const domString = `
-  <form id="${obj.firebaseKey ? `update-item--${obj.firebaseKey}` : `submit-item--${orderId}`}" class="mb-4>
+  <form id="${obj.firebaseKey ? `update-item--${obj.firebaseKey}--${orderId}` : `submit-item--${orderId}`}" class="mb-4>
   <div class="mb-3">
     <label for="itemName" class="form-label">Item Name</label>
     <input type="text" class="form-control" id="item-name" aria-describedby="item-name" value="${obj.itemName || ''}">
