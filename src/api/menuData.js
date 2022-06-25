@@ -24,11 +24,10 @@ const createNewMenuItem = (itemObject) => new Promise((resolve, reject) => {
     }).catch((error) => reject(error));
 });
 
-const updateMenuItem = (itemObject, firebaseKey) => new Promise((resolve, reject) => {
-  axios.patch(`${dbUrl}/items/${itemObject.firebaseKey || firebaseKey}.json`, itemObject)
-    .then(() => {
-      getMenuItems(itemObject).then((itemArray) => resolve(itemArray));
-    }).catch((error) => reject(error));
+const updateMenuItem = (itemObject) => new Promise((resolve, reject) => {
+  axios.patch(`${dbUrl}/items/${itemObject.orderId}.json`, itemObject)
+    .then(() => getMenuItems(itemObject).then(resolve))
+    .catch((error) => reject(error));
 });
 
 const deleteMenuItem = (firebaseKey) => new Promise((resolve, reject) => {
@@ -37,8 +36,8 @@ const deleteMenuItem = (firebaseKey) => new Promise((resolve, reject) => {
       getMenuItems().then((itemArray) => resolve(itemArray));
     }).catch((error) => reject(error));
 });
-const getSingleItem = (firebasekey) => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/items.json?orderBy="firebasekey"&equalTo="${firebasekey}"`)
+const getSingleItem = (firebaseKey) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/items.json?orderBy="firebaseKey"&equalTo="${firebaseKey}"`)
     .then((response) => resolve(response.data))
     .catch((error) => reject(error));
 });

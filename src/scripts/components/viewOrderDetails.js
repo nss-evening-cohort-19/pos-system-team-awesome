@@ -10,7 +10,7 @@ const viewOrder = (obj) => {
   const thisObj = obj.itemObject;
   let startingTotal = 0;
   thisObj.forEach((item) => {
-    startingTotal -= item.itemPrice;
+    startingTotal = -item.itemPrice;
   });
   const finalTotal = startingTotal * -1;
   // That was Fun
