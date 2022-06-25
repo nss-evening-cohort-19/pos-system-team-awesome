@@ -5,8 +5,8 @@ import pzaPNG from './logos/pza.png';
 const renderNav = () => {
   const domString = `<nav class="navbar navbar-expand-sm">
       <div class="container-fluid">
-        <a class="navbar-brand" id="logo" href="#">
-        <img src="${pzaSVG}" onerror="this.onerror=null; this.src='${pzaPNG}'" height="50rem">
+        <a class="navbar-brand" href="#">
+        <img id="logo" src="${pzaSVG}" onerror="this.onerror=null; this.src='${pzaPNG}'" height="50rem">
         </a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav">

@@ -21,7 +21,7 @@ const addItemForm = (orderId, obj = {}) => {
     <label for="itemCategory" class="form-label">Item Category</label>
     <input type="text" class="form-control" id="item-category" value="${obj.itemCategory || ''}">
  </div>
- <button type="submit" id=" submit-item-formbtn" class="btn btn-primary"${obj.firebaseKey ? 'update item' : 'submit item'}>Add/Edit Item</button>
+ <button type="submit" class="btn btn-primary">Add/Edit Item</button>
  </form>`;
   renderToDOM('#main-container', domString);
 };
