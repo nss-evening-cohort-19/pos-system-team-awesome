@@ -24,11 +24,10 @@ const createNewMenuItem = (itemObject) => new Promise((resolve, reject) => {
     }).catch((error) => reject(error));
 });
 
-const updateMenuItem = (itemObject, firebaseKey) => new Promise((resolve, reject) => {
-  axios.patch(`${dbUrl}/items/${itemObject.firebaseKey || firebaseKey}.json`, itemObject)
-    .then(() => {
-      getMenuItems(itemObject).then((itemArray) => resolve(itemArray));
-    }).catch((error) => reject(error));
+const updateMenuItem = (itemObject) => new Promise((resolve, reject) => {
+  axios.patch(`${dbUrl}/items/${itemObject.orderId}.json`, itemObject)
+    .then(() => getMenuItems(itemObject).then(resolve))
+    .catch((error) => reject(error));
 });
 
 const deleteMenuItem = (firebaseKey) => new Promise((resolve, reject) => {
