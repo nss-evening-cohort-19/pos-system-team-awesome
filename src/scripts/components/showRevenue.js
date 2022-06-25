@@ -5,12 +5,19 @@ import { getRevenue, getRevOrders } from '../../api/revenueData';
 
 const renderRevenue = (obj) => {
   clearDom();
-  const thisObj = obj[0];
+  let startingTotal = 0;
+  const thisObj = obj[0].orderType.callIn;
+  const grabObj = obj.itemPrice;
+  console.warn(thisObj);
+  grabObj.forEach((item) => {
+    startingTotal -= item.itemPrice;
+  });
+  const totalRevenue = startingTotal * -1;
   const domString = `
   <div class="revPage">
-  <div class="revHead">
+  <div class="revHead">          
   <h3>Revenue</h3>
-  <h1 id="totalRevH1">TOTAL REVENUE: $${thisObj.totalRevenue}</h1>
+  <h1 id="totalRevH1">TOTAL REVENUE: $${totalRevenue}</h1>
   </div>
   <div class="dates">
   <p>Date Range:</p>

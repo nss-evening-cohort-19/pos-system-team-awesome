@@ -47,8 +47,9 @@ const formEvt = (tipAmount, total, paymentType) => {
         itemName: document.querySelector('#item-name').value,
         itemPrice: document.querySelector('#item-price').value,
         itemDescription: document.querySelector('#item-description').value,
+        itemCategory: document.querySelector('#item-category').value,
         orderId,
-        itemCategory: document.querySelector('#item-category').value
+
       };
       // createNewMenuItem(itemObject)
       //   .then(() => orderDetail(itemObject.orderId).then((orderObject) => viewOrder(orderObject)));

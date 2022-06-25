@@ -20,7 +20,10 @@ const deleteOrders = (firebaseKey) => new Promise((resolve, reject) => {
 const createOrder = (cardObject) => new Promise((resolve, reject) => {
   axios.post(`${dbUrl}/orders.json`, cardObject)
     .then((response) => {
-      const payload = { firebaseKey: response.data.name };
+      const payload = {
+        firebaseKey: response.data.name,
+        total: response.data.item
+      };
       axios.patch(`${dbUrl}/orders/${response.data.name}.json`, payload)
         .then(() => {
           getOrders(cardObject).then(resolve);
@@ -34,8 +37,8 @@ const getSingleOrder = (firebaseKey) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-const getOrderItems = (firebaseKey) => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/items.json?orderBy="orderId"&equalTo="${firebaseKey}"`)
+const getOrderItems = (orderId) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/items.json?orderBy="orderId"&equalTo="${orderId}"`)
     .then((response) => resolve(Object.values(response.data)))
     .catch((error) => reject(error));
 });
