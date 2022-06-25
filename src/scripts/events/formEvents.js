@@ -52,8 +52,6 @@ const formEvt = (tipAmount, total, paymentType) => {
       };
       createNewMenuItem(itemObject)
         .then(() => orderDetail(itemObject.orderId).then((orderObject) => viewOrder(orderObject)));
-      createNewMenuItem(itemObject)
-        .then(() => orderDetail(itemObject.orderId).then((orderObject) => console.error(orderObject)));
     }
 
     if (e.target.id.includes('update-item')) {
