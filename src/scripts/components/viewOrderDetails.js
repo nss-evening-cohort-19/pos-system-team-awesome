@@ -25,6 +25,7 @@ const viewOrder = (obj) => {
   if (obj.itemObject.length) {
     let itemString = ' ';
     obj.itemObject.forEach((item) => {
+      // console.error(item);
       itemString += `
     <div class="card mt-5 d-flex bg-light flex-wrap">
       <div class="card-body d-flex flex-column">
@@ -35,7 +36,7 @@ const viewOrder = (obj) => {
         <hr>
         <p>${item.itemDescription}</p>
         <div>
-          <i id="edit-item--${item.firebasekey}" class="fas fa-edit btn btn-info"></i>
+          <i id="edit-item--${item.firebaseKey}" class="fas fa-edit btn btn-info"></i>
           <i id="delete-item--${item.firebaseKey}" class="btn btn-danger fas fa-trash-alt"></i>
         </div>
         </div>
