@@ -36,8 +36,8 @@ const domEvents = () => {
       orderDetail(firebaseKey).then((itemOrderObject) => viewOrder(itemOrderObject));
     }
     if (e.target.id.includes('edit-order')) {
-      const [, firebaseKey] = e.target.id.split('--');
-      getSingleOrder(firebaseKey).then((orderObject) => addOrderForm(orderObject));
+      const [, firebaseKey, orderId] = e.target.id.split('--');
+      getSingleOrder(firebaseKey).then((orderObject) => addOrderForm(orderObject, orderId));
     }
     if (e.target.id.includes('view-orders-dom')) {
       getOrders().then((array) => viewOrders(array));
