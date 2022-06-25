@@ -29,7 +29,7 @@ const createRevenue = (revenueObj) => new Promise((resolve, reject) => {
 
 const updateRevenue = (revenueObj) => new Promise((resolve, reject) => {
   axios.patch(`${dbUrl}/revenue/-MiBsfuTafbEQ7eAULxV.json`, revenueObj)
-    .then(() => getRevenue().then(resolve))
+    .then(() => getRevenue(revenueObj).then(resolve))
     .catch(reject);
 });
 

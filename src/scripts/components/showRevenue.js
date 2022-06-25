@@ -1,8 +1,7 @@
 /* eslint-disable no-unused-vars */
 import clearDom from '../helpers/clearDom';
 import renderToDOM from '../helpers/renderToDom';
-import { getRevenue, getRevOrders } from '../../api/revenueData';
-// import { updateRevenue } from '../../api/revenueData';
+import { getRevenue, getRevOrders, updateRevenue } from '../../api/revenueData';
 
 const renderRevenue = (obj) => {
   obj.forEach((item) => {
@@ -21,8 +20,8 @@ const renderRevenue = (obj) => {
       </div>
       <div class="extras">
       <p>Total Tips: $${thisObj.totalTips}</p>
-      <p>Total Call in Orders: ${thisObj.orderType.callIn}</p>
-      <p>Total Walk in Orders: ${thisObj.orderType.walkIn}</p>
+      <p id="called">Total Call in Orders: </p>
+      <p id="walked">Total Walk in Orders: </p>
       </div>
       <div class="paymentTypes">
       <p>Total Payment Types:</p>
@@ -38,21 +37,21 @@ const renderRevenue = (obj) => {
 };
 
 const getTotalCalls = (array) => {
-  let cSum = 0;
-  let wSum = 0;
+  let callIn = 0;
+  let walkIn = 0;
   array.forEach((callObj) => {
     if (callObj.callIn === 'Call in') {
-      cSum += 1;
-    } else {
-      wSum += 1;
+      callIn += 1;
+    } else if (callObj.callIn === 'Walk in') {
+      walkIn += 1;
     }
   });
-  console.error(cSum, wSum);
+  const callSpace = document.querySelector('#called');
+  callSpace.innerHTML += callIn;
+  const walkSpace = document.querySelector('#walked');
+  walkSpace.innerHTML += walkIn;
 };
-// if (item.firebaseKey !== '-MiBsfuTafbEQ7eAULxV') {
 
-// }
-// });
 getRevenue();
 getRevOrders();
 export { renderRevenue, getTotalCalls };
