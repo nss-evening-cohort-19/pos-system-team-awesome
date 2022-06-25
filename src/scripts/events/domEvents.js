@@ -49,8 +49,9 @@ const domEvents = () => {
       renderRevenue();
     }
     if (e.target.id.includes('edit-item')) {
-      const [, firebasekey] = e.target.id.split('--');
-      getSingleItem(firebasekey).then((itemObject) => addItemForm(itemObject));
+      const [, firebaseKey] = e.target.id.split('--');
+      getSingleItem(firebaseKey).then((itemObject) => addItemForm(itemObject));
+      getSingleItem(firebaseKey).then((itemObject) => console.error(itemObject));
     }
     if (e.target.id.includes('add-item')) {
       getMenuItems();

@@ -25,7 +25,6 @@ const viewOrder = (obj) => {
   if (obj.itemObject.length) {
     let itemString = ' ';
     obj.itemObject.forEach((item) => {
-      // console.error(item);
       itemString += `
     <div class="card mt-5 d-flex bg-light flex-wrap">
       <div class="card-body d-flex flex-column">

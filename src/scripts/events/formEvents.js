@@ -50,10 +50,10 @@ const formEvt = (tipAmount, total, paymentType) => {
         orderId,
         itemCategory: document.querySelector('#item-category').value
       };
-      // createNewMenuItem(itemObject)
-      //   .then(() => orderDetail(itemObject.orderId).then((orderObject) => viewOrder(orderObject)));
       createNewMenuItem(itemObject)
-        .then(() => orderDetail(itemObject).then((orderObj) => console.warn(orderObj)));
+        .then(() => orderDetail(itemObject.orderId).then((orderObject) => viewOrder(orderObject)));
+      createNewMenuItem(itemObject)
+        .then(() => orderDetail(itemObject.orderId).then((orderObject) => console.error(orderObject)));
     }
 
     if (e.target.id.includes('update-item')) {

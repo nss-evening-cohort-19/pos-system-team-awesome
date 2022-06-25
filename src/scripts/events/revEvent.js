@@ -1,4 +1,4 @@
-import { renderRevenue } from '../components/showRevenue';
+import renderRevenue from '../components/showRevenue';
 
 const revEvent = () => {
   document.querySelector('#revLink').addEventListener('click', () => {
