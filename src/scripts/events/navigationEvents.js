@@ -1,5 +1,5 @@
 import signOut from '../helpers/auth/signOut';
-import { renderRevenue, addRevDetails } from '../components/showRevenue';
+import { renderRevenue, getTotalCalls } from '../components/showRevenue';
 import homePage from '../components/pages/homepage';
 import { getOrders } from '../../api/orderData';
 import addOrderForm from '../components/forms/createOrderForm';
@@ -13,7 +13,7 @@ const navEvt = () => {
     }
     if (e.target.id.includes('revLink')) {
       getRevenue().then((array) => renderRevenue(array));
-      getRevOrders().then((array) => addRevDetails(array));
+      getRevOrders().then((array) => getTotalCalls(array));
     }
     if (e.target.id.includes('create-order')) {
       addOrderForm();
